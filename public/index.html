@@ -1,0 +1,127 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Comics</title>
+    <meta name="description" content="Comics">
+    <meta name="author" content="Alex Earley">
+
+    <style media="screen, print">
+        body {
+            background-color: black;
+        }
+        #books {
+            list-style-type: none;
+            font-size: 0;
+        }
+        #books li {
+            display: inline-block;
+            padding: 0;
+            margin: 5px;
+            width: 100px;
+            height: 150px;
+            /* height: 200px; */
+            position: relative;
+
+            transition: transform 0.5s;
+
+            vertical-align: bottom;
+
+            box-sizing: border-box;
+
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+        }
+        #books li img{
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            /* height: 150px; */
+            padding: 0;
+            margin: 0;
+            transition: opacity 0.5s;
+        }
+        #books li:hover{
+            transform: scale(1.5, 1.5);
+            z-index: 10000;
+        }
+        #books li img:hover{
+            opacity: 1.0;
+            filter: brightness(20%);
+        }
+        .unowned {
+            opacity: 0.25;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+        .only-reprint{
+            /* -webkit-filter: grayscale(100%);
+            filter: grayscale(100%); */
+            clip-path:polygon(0 100%, 100% 0, 100% 100%);
+            /* opacity: 0.25; */
+            opacity: 0.50;
+            /* opacity: 0.40; */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .description {
+            color: rgb(140, 232, 255);
+            font-size: 8pt;
+            position: absolute;
+            left: 0;
+            pointer-events: none;
+            text-shadow: 1pt 1pt 2pt black;
+            /* text-shadow: 1pt 1pt 2pt white; */
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            width: 100%;
+        }
+        .description.unowned{
+            color: white;
+        }
+        #books li:hover .description{
+            opacity: 1;
+        }
+        #books li.label-bookmark{
+            font-size: 16pt;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-weight: bold;
+        }
+
+        /* #books li .credits{
+            height: 50px;
+            color: white;
+            display: block;
+            font-size: 10pt;
+        } */
+
+        #stats {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color : white;
+            margin: 20px;
+        }
+
+        #stats td{
+            padding: 5px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <script src="client.js"></script>
+    <table id="stats"></table>
+    <ul id="books"></ul>
+</body>
+
+</html>

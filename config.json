@@ -1,0 +1,57 @@
+{
+    "trackerWorkbookPath" : "./tracker.xlsx",
+    "savedFileName" : "savedComicData.json",
+    "loadSubPageInfo" : true,
+    "volumes" : {
+        "Vol 1" : {
+            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_1",
+            "trackerPrefix" : ""
+        },
+        "Vol 2" : {
+            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_2",
+            "trackerPrefix" : "Vol 2, "
+        },
+        "Vol 3" : {
+            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_3",
+            "trackerPrefix" : "Vol 3, "
+        },
+        "Vol 4" : {
+            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_4",
+            "trackerPrefix" : "Vol 4, "
+        },
+        "Vol 5" : {
+            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_5",
+            "trackerPrefix" : "Vol 5, "
+        },
+        "Annual" : {
+            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Annual_Vol_1",
+            "trackerPrefix" : "Annual "
+        },
+        "FF" : {
+            "url" : "https://marvel.fandom.com/wiki/FF_Vol_1",
+            "trackerPrefix" : "FF Vol 1, "
+        },
+        "Dark Reign" : {
+            "url" : "https://marvel.fandom.com/wiki/Dark_Reign:_Fantastic_Four_Vol_1",
+            "trackerPrefix" : "Dark Reign "
+        }
+    },
+    "months" : [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ],
+    "DOM" : {
+        "VOLUME_TITLE_ID" : "firstHeading",
+        "GALLERY_ITEM_CLASS" : "wikia-gallery-item"
+    }
+}
