@@ -123,7 +123,7 @@ window.onload = function () {
                 (STATS.Owned.Trade / STATS.Total * 100).toFixed(2)
             );
             AddStatsSpan2(
-                "Owned Issues All",
+                "Total Owned Issues",
                 STATS.Owned.Floppy + STATS.Owned.Trade,
                 ((STATS.Owned.Floppy + STATS.Owned.Trade) / STATS.Total * 100).toFixed(2)
             );
@@ -131,6 +131,11 @@ window.onload = function () {
                 "Unowned Issues",
                 STATS.Unowned,
                 ((STATS.Unowned) / STATS.Total * 100).toFixed(2)
+            );
+            AddStatsSpan2(
+                "Total Issues",
+                STATS.Total,
+                null
             );
         }
     };
@@ -256,11 +261,14 @@ const AddStatsSpan2 = function(label, rawNum, percentage){
     const items = [
         label + ":",
         rawNum,
-        "(" + percentage + "%)"
+        percentage ? 
+            "(" + percentage + "%)" :
+            null
     ];
     console.log(items.join(" "));
 
     for(const item of items){
+        if(!item) continue;
         const span = document.createElement("td");
         rootDiv.appendChild(span);
         span.innerHTML = item;
