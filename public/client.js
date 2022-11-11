@@ -54,6 +54,9 @@ const MONTHS = [
 
 const modulusValue = 1;
 
+let mainBookElements = [];
+let otherBookElements = [];
+
 window.onload = function () {
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -166,6 +169,23 @@ window.onload = function () {
     };
     xhttp.open("GET", "books", true);
     xhttp.send();
+
+    document.getElementById("main-series-toggle").onchange = e => {
+        for(let el of mainBookElements){
+            if(e.target.checked)
+                el.style.display = null;
+            else
+                el.style.display = "none";
+        }
+    };
+    document.getElementById("other-issues-toggle").onchange = e => {
+        for(let el of otherBookElements){
+            if(e.target.checked)
+                el.style.display = null;
+            else
+                el.style.display = "none";
+        }
+    };
 };
 
 const EXT_OPTIONS = [
@@ -191,6 +211,11 @@ const AddBook = function (book, isMain) {
             break;
         }
     }
+
+    if(isMain)
+        mainBookElements.push(li);
+    else
+        otherBookElements.push(li);
 
     li.appendChild(img);
 
