@@ -162,7 +162,7 @@ window.onload = function () {
                 STATS.Total,
                 null,
 
-                STATS.Total,
+                STATS_ONLY_MAIN.Total,
                 null
             );
         }
