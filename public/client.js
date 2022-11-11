@@ -123,7 +123,7 @@ window.onload = function () {
             console.log(STATS_ONLY_MAIN);
 
             AddStatsSpan(
-                "Owned Original Issues",
+                "Single Issues",
                 STATS.Owned.Floppy,
                 (STATS.Owned.Floppy / STATS.Total * 100).toFixed(2),
 
@@ -131,7 +131,7 @@ window.onload = function () {
                 (STATS_ONLY_MAIN.Owned.Floppy / STATS_ONLY_MAIN.Total * 100).toFixed(2)
             );
             AddStatsSpan(
-                "Owned TPB Issues",
+                "In TPB",
                 STATS.Owned.Trade,
                 (STATS.Owned.Trade / STATS.Total * 100).toFixed(2),
 
