@@ -3,37 +3,117 @@
     "savedFileName" : "savedComicData.json",
     "loadSubPageInfo" : true,
     "volumes" : {
-        "Vol 1" : {
-            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_1",
-            "trackerPrefix" : ""
+        "tracked" : {
+            "Vol 1" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_1",
+                "trackerPrefix" : ""
+            },
+            "Vol 2" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_2",
+                "trackerPrefix" : "Vol 2, "
+            },
+            "Vol 3" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_3",
+                "trackerPrefix" : "Vol 3, "
+            },
+            "Vol 4" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_4",
+                "trackerPrefix" : "Vol 4, "
+            },
+            "Vol 5" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_5",
+                "trackerPrefix" : "Vol 5, "
+            },
+            "Annual" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Annual_Vol_1",
+                "trackerPrefix" : "Annual "
+            }
         },
-        "Vol 2" : {
-            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_2",
-            "trackerPrefix" : "Vol 2, "
+        "ongoing" : {
+            "Vol 6" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_6"
+            },
+            "Vol 7" : {
+                "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_7"
+            }
         },
-        "Vol 3" : {
-            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_3",
-            "trackerPrefix" : "Vol 3, "
-        },
-        "Vol 4" : {
-            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_4",
-            "trackerPrefix" : "Vol 4, "
-        },
-        "Vol 5" : {
-            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Vol_5",
-            "trackerPrefix" : "Vol 5, "
-        },
-        "Annual" : {
-            "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Annual_Vol_1",
-            "trackerPrefix" : "Annual "
-        },
-        "FF" : {
-            "url" : "https://marvel.fandom.com/wiki/FF_Vol_1",
-            "trackerPrefix" : "FF Vol 1, "
-        },
-        "Dark Reign" : {
-            "url" : "https://marvel.fandom.com/wiki/Dark_Reign:_Fantastic_Four_Vol_1",
-            "trackerPrefix" : "Dark Reign "
+        "other" : {
+            "completed" : [
+                "https://marvel.fandom.com/wiki/Annihilation_-_Scourge:_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Before_the_Fantastic_Four:_Ben_Grimm_and_Logan_Vol_1",
+                "https://marvel.fandom.com/wiki/Before_the_Fantastic_Four:_Reed_Richards_Vol_1",
+                "https://marvel.fandom.com/wiki/Before_the_Fantastic_Four:_The_Storms_Vol_1",
+                "https://marvel.fandom.com/wiki/Domination_Factor:_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Empyre:_Fallout_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Empyre:_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four_2099_Vol_2",
+                "https://marvel.fandom.com/wiki/Fantastic_Four_Cosmic-Size_Special_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four_Roast_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four_vs._the_X-Men_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_1_2_3_4_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_4_Yancy_Street_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Antithesis_Vol_1",
+                "https://marvel.fandom.com/wiki/Big_Town_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Fireworks_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_First_Family_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Foes_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Full_Circle_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Grand_Design_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Grimm_Noir_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Life_Story_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Negative_Zone_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Reckoning_War_Alpha_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Road_Trip_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_The_End_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_The_Lost_Adventure_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_The_Movie_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_The_Prodigal_Sun_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_The_Wedding_Special_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_Wedding_Special_Vol_1",
+                "https://marvel.fandom.com/wiki/Fantastic_Four:_World%27s_Greatest_Comics_Magazine_Vol_1",
+                "https://marvel.fandom.com/wiki/Marvel_1602:_Fantastick_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Mythos:_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Secret_Invasion:_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Spider-Man_and_the_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/The_Last_Fantastic_Four_Story_Vol_1",
+                "https://marvel.fandom.com/wiki/Ultimate_Fantastic_Four_Annual_Vol_1",
+                "https://marvel.fandom.com/wiki/Ultimate_FF_Vol_1",
+                "https://marvel.fandom.com/wiki/X-Men_/_Fantastic_Four_Vol_2",
+                "https://marvel.fandom.com/wiki/4_Vol_1",
+                "https://marvel.fandom.com/wiki/Marvel_2-In-One_Vol_1",
+                "https://marvel.fandom.com/wiki/Marvel_2-In-One_Annual_Vol_1",
+                "https://marvel.fandom.com/wiki/FF_Vol_1"
+            ],
+            "incomplete" : [
+                {
+                    "url" : "https://marvel.fandom.com/wiki/Dark_Reign:_Fantastic_Four_Vol_1",
+                    "missing" : [ 5 ]
+                },
+                {
+                    "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_2099_Vol_1",
+                    "missing" : [ 1, 2, 3, 4, 5, 6, 7, 8 ]
+                },
+                {
+                    "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_Unlimited_Vol_1",
+                    "missing" : [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                },
+                {
+                    "url" : "https://marvel.fandom.com/wiki/Fantastic_Four:_Unplugged_Vol_1",
+                    "missing" : [ 1, 3, 4, 5, 6 ]
+                },
+                {
+                    "url" : "https://marvel.fandom.com/wiki/Spider-Man_/_Fantastic_Four_Vol_1",
+                    "missing" : [ 1, 2, 3, 4]
+                },
+                {
+                    "url" : "https://marvel.fandom.com/wiki/Ultimate_Fantastic_Four_Vol_1",
+                    "missing" : [ 21 ]
+                },
+                {
+                    "url" : "https://marvel.fandom.com/wiki/Ultimatum:_Fantastic_Four_Requiem_Vol_1",
+                    "missing" : [ 1 ]
+                }
+            ]
         }
     },
     "months" : [

@@ -3,9 +3,13 @@
 const express = require("express");
 const path = require("path");
 const { LoadWithPersonal } = require("./src/loadWithPersonal");
+
+const PORT = 3000;
  
 (async () => {
+    console.log("Loading Volumes...");
     const volumes = await LoadWithPersonal();
+    console.log("Loaded Volumes.");
 
     const app = express()
     app.get('/', function (req, res) {
@@ -17,5 +21,7 @@ const { LoadWithPersonal } = require("./src/loadWithPersonal");
     app.get('/*', function (req, res) {
         res.sendFile(path.join(__dirname, "public", req.url));
     });
-    app.listen(3000)
+    app.listen(PORT)
+
+    console.log(`Listening on localhost:${PORT}`);
 })();

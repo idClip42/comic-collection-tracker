@@ -22,9 +22,11 @@ exports.LoadWithPersonal = async function(){
         const singles = personalData.singleIssues[volume.name];
         const trades = personalData.onlyInTrades[volume.name];
 
+        if(!singles && !trades) continue;
+
         for(const key in CONVERSIONS){
-            const singlesIndex = singles.indexOf(key);
-            const tradesIndex = trades.indexOf(key);
+            const singlesIndex = singles ? singles.indexOf(key) : -1;
+            const tradesIndex = trades ? trades.indexOf(key) : -1;
             if(singlesIndex >= 0)
                 singles[singlesIndex] = CONVERSIONS[key];
             if(tradesIndex >= 0)
@@ -32,8 +34,8 @@ exports.LoadWithPersonal = async function(){
         }
 
         for(const ish of volume.issues){
-            const singlesIndex = singles.indexOf(ish.issueString);
-            const tradesIndex = trades.indexOf(ish.issueString);
+            const singlesIndex = singles ? singles.indexOf(ish.issueString) : -1;
+            const tradesIndex = trades ? trades.indexOf(ish.issueString) : -1;
             
             if(singlesIndex >= 0){
                 ish.personal.ownSingleIssue = true;
@@ -46,9 +48,11 @@ exports.LoadWithPersonal = async function(){
             ish.personal.haveRead = true;
         }
 
-        for(const item of singles){
-            if(item){
-                console.error(`Unmatched Issue from Spreadsheet: ${volume.name} #${item}`);
+        if(singles){
+            for(const item of singles){
+                if(item){
+                    console.error(`Unmatched Issue from Spreadsheet: ${volume.name} #${item}`);
+                }
             }
         }
     }

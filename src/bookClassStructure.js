@@ -58,6 +58,8 @@ const Volume = function(input){
     this.url = input.url || "";
     /** @type {Book[]} */
     this.issues = [];
+
+    this.mainSeries = input.mainSeries || false;
     
     if(input.issues)
         for(const item of input.issues)

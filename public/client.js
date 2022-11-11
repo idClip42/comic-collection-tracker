@@ -25,14 +25,17 @@ const CONFIG = {
     }
 };
 
-const STATS = {
-    "Owned": {
+const StatsObj = function(){
+    this.Owned = {
         "Floppy": 0,
         "Trade": 0
-    },
-    "Unowned": 0,
-    "Total": 0
-};
+    };
+    this.Unowned = 0;
+    this.Total = 0;
+}
+
+const STATS = new StatsObj();
+const STATS_ONLY_MAIN = new StatsObj();
 
 const MONTHS = [
     "January",
@@ -60,8 +63,11 @@ window.onload = function () {
             const volumes = JSON.parse(xhttp.responseText);
             /** @type {Book[]} */
             let books = [];
-            for (const vol of volumes)
+            let volumeToIsMain = {};
+            for (const vol of volumes){
                 books = books.concat(vol.issues);
+                volumeToIsMain[vol.name] = vol.mainSeries;
+            }
 
             books.sort((a, b) => {
                 return (new Date(a.coverDate)) - (new Date(b.coverDate))
@@ -107,33 +113,52 @@ window.onload = function () {
                     prevYear = newYear;
                 }
 
-                AddBook(book);
+                AddBook(
+                    book,
+                    volumeToIsMain[book.volumeName]
+                );
             }
 
             console.log(STATS);
+            console.log(STATS_ONLY_MAIN);
 
-            AddStatsSpan2(
+            AddStatsSpan(
                 "Owned Original Issues",
                 STATS.Owned.Floppy,
-                (STATS.Owned.Floppy / STATS.Total * 100).toFixed(2)
+                (STATS.Owned.Floppy / STATS.Total * 100).toFixed(2),
+
+                STATS_ONLY_MAIN.Owned.Floppy,
+                (STATS_ONLY_MAIN.Owned.Floppy / STATS_ONLY_MAIN.Total * 100).toFixed(2)
             );
-            AddStatsSpan2(
+            AddStatsSpan(
                 "Owned TPB Issues",
                 STATS.Owned.Trade,
-                (STATS.Owned.Trade / STATS.Total * 100).toFixed(2)
+                (STATS.Owned.Trade / STATS.Total * 100).toFixed(2),
+
+                STATS_ONLY_MAIN.Owned.Trade,
+                (STATS_ONLY_MAIN.Owned.Trade / STATS_ONLY_MAIN.Total * 100).toFixed(2)
             );
-            AddStatsSpan2(
+            AddStatsSpan(
                 "Total Owned Issues",
                 STATS.Owned.Floppy + STATS.Owned.Trade,
-                ((STATS.Owned.Floppy + STATS.Owned.Trade) / STATS.Total * 100).toFixed(2)
+                ((STATS.Owned.Floppy + STATS.Owned.Trade) / STATS.Total * 100).toFixed(2),
+
+                STATS_ONLY_MAIN.Owned.Floppy + STATS_ONLY_MAIN.Owned.Trade,
+                ((STATS_ONLY_MAIN.Owned.Floppy + STATS_ONLY_MAIN.Owned.Trade) / STATS_ONLY_MAIN.Total * 100).toFixed(2)
             );
-            AddStatsSpan2(
+            AddStatsSpan(
                 "Unowned Issues",
                 STATS.Unowned,
-                ((STATS.Unowned) / STATS.Total * 100).toFixed(2)
+                ((STATS.Unowned) / STATS.Total * 100).toFixed(2),
+
+                STATS_ONLY_MAIN.Unowned,
+                ((STATS_ONLY_MAIN.Unowned) / STATS_ONLY_MAIN.Total * 100).toFixed(2)
             );
-            AddStatsSpan2(
+            AddStatsSpan(
                 "Total Issues",
+                STATS.Total,
+                null,
+
                 STATS.Total,
                 null
             );
@@ -151,8 +176,9 @@ const EXT_OPTIONS = [
 /**
  * 
  * @param {Book} book 
+ * @param {boolean} isMain 
  */
-const AddBook = function (book) {
+const AddBook = function (book, isMain) {
     let list = document.getElementById("books");
     let li = document.createElement("li");
     list.appendChild(li);
@@ -181,6 +207,8 @@ const AddBook = function (book) {
         description.className += " unowned";
         if (!book.personal.ownInTrade) {
             STATS.Unowned++;
+            if(isMain)
+                STATS_ONLY_MAIN.Unowned++;
         }
     }
     if (CONFIG.REPRINTS.SHOW_REPRINTS) {
@@ -190,11 +218,15 @@ const AddBook = function (book) {
             img.after(img2);
             img2.className += " only-reprint";
             STATS.Owned.Trade++;
+            if(isMain)
+                STATS_ONLY_MAIN.Owned.Trade++;
         }
     }
 
     if (book.personal.ownSingleIssue && !book.personal.ownInTrade) {
         STATS.Owned.Floppy++;
+        if(isMain)
+            STATS_ONLY_MAIN.Owned.Floppy++;
     }
 
     let credits = [...book.writers, ...book.artists];
@@ -205,6 +237,8 @@ const AddBook = function (book) {
     }
 
     STATS.Total++;
+    if(isMain)
+        STATS_ONLY_MAIN.Total++;
 };
 
 /**
@@ -244,33 +278,32 @@ const AddNewLine = function () {
     list.appendChild(br);
 }
 
-const AddStatsSpan = function(text, className=""){
-    const parent = document.getElementById("stats");
-    const span = document.createElement("span");
-    parent.appendChild(span);
-    if(className)
-        span.classList.add(className);
-    span.innerHTML = text;
-};
-
-const AddStatsSpan2 = function(label, rawNum, percentage){
+const AddStatsSpan = function(label, rawNum, percentage, rawNumMain, percentageMain){
     const parent = document.getElementById("stats");
     const rootDiv = document.createElement("tr");
     parent.appendChild(rootDiv);
 
     const items = [
+        "Main Series",
+        label + ":",
+        rawNumMain,
+        percentageMain ? 
+            "(" + percentageMain + "%)" :
+            null,
+        "..........",
+        "All Series",
         label + ":",
         rawNum,
         percentage ? 
             "(" + percentage + "%)" :
-            null
+            null,
     ];
     console.log(items.join(" "));
 
     for(const item of items){
-        if(!item) continue;
+        // if(!item) continue;
         const span = document.createElement("td");
         rootDiv.appendChild(span);
-        span.innerHTML = item;
+        span.innerHTML = item || "";
     }
 }

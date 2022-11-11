@@ -9,7 +9,7 @@ module.exports.ReadSpreadsheet = function(){
     const ownedBooks = {};
     /** @type {Object<string, Array<number>>} */
     const onlyInOwnedTrades = {};
-    for(let key in CONFIG.volumes){
+    for(let key in CONFIG.volumes.tracked){
         ownedBooks[key] = [];
         onlyInOwnedTrades[key] = [];
     }
@@ -68,7 +68,7 @@ module.exports.ReadSpreadsheet = function(){
  */
  const AddBookToCorrectVolume = function(bookName, volumeSet){
     for(let vol in volumeSet){
-        let prefix = CONFIG.volumes[vol].trackerPrefix;
+        let prefix = CONFIG.volumes.tracked[vol].trackerPrefix;
         if(prefix === ""){
             // let num = parseInt(bookName);
             let num = bookName;

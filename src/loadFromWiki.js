@@ -14,12 +14,14 @@ const CONSOLE_LOG_EACH_BOOK_DETAIL = false;
  * @param {string} name 
  * @param {string} url 
  * @param {boolean} loadSubPageInfo 
+ * @param {boolean} mainSeries 
  * @returns 
  */
-exports.LoadFromWiki = async function(name, url, loadSubPageInfo){
+exports.LoadFromWiki = async function(name, url, loadSubPageInfo, mainSeries){
     const volume = new Volume();
     volume.name = name;
     volume.url = url
+    volume.mainSeries = mainSeries;
 
     const response = await fetch(volume.url);
     const text = await response.text();
