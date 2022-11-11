@@ -27,6 +27,9 @@ exports.LoadFromWiki = async function(name, url, loadSubPageInfo, mainSeries){
     const text = await response.text();
     const dom = new JSDOM(text);
 
+    let pageVolumeName = dom.window.document.getElementById("firstHeading");
+    volume.fullName = pageVolumeName.innerHTML.trim().split("<")[0];
+
     const galleryItems = dom.window.document.getElementsByClassName(
         CONFIG.DOM.GALLERY_ITEM_CLASS
     );
@@ -37,7 +40,7 @@ exports.LoadFromWiki = async function(name, url, loadSubPageInfo, mainSeries){
         let links = galleryElement.getElementsByTagName("a");
         let images = galleryElement.getElementsByTagName("img");
 
-        issue.volumeName = volume.name;
+        issue.volumeName = volume.fullName || volume.name;
 
         const issueLink = links[1];
         issue.url = volume.url.split("/wiki/")[0] + issueLink.href;

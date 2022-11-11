@@ -55,6 +55,8 @@ const Volume = function(input){
     /** @type {string} */
     this.name = input.name || "";
     /** @type {string} */
+    this.fullName = input.fullName || "";
+    /** @type {string} */
     this.url = input.url || "";
     /** @type {Book[]} */
     this.issues = [];
