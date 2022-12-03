@@ -57,6 +57,8 @@ const modulusValue = 1;
 let mainBookElements = [];
 let otherBookElements = [];
 
+const creatorsArray = [];
+
 window.onload = function () {
     let xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -186,6 +188,24 @@ window.onload = function () {
                 el.style.display = "none";
         }
     };
+
+    let authorshipRuleIndex = null;
+    const stylesheet = document.getElementsByTagName("style")[0].sheet;
+    document.getElementById("authorship-toggle").onchange = e => {
+        if(!e.target.checked){
+            if(authorshipRuleIndex == null){
+                authorshipRuleIndex = stylesheet.insertRule(".bottom-block { display : none }");
+            }
+        }
+        else {
+            if(authorshipRuleIndex != null){
+                stylesheet.deleteRule(authorshipRuleIndex);
+                authorshipRuleIndex = null;
+            }
+        }
+    };
+    // Default to unchecked
+    document.getElementById("authorship-toggle").click();
 };
 
 const EXT_OPTIONS = [
@@ -258,7 +278,22 @@ const AddBook = function (book, isMain) {
     if (credits.length > 0) {
         credits = [...new Set(credits)];
         description.innerHTML += `<br><br>${credits.join(", ")}`;
+    }
 
+    let bottomBlock = document.createElement("div");
+    bottomBlock.classList.add("bottom-block");
+    li.appendChild(bottomBlock);
+    for(const creator of credits){
+        const line = document.createElement("p");
+        line.innerHTML = creator;
+
+        if(!creatorsArray.includes(creator))
+            creatorsArray.push(creator);
+        const creatorIndex = creatorsArray.indexOf(creator);
+
+        line.classList.add("authorship-credit");
+        line.style.backgroundColor = GetColorByIndex(creatorIndex);
+        bottomBlock.appendChild(line);
     }
 
     STATS.Total++;
@@ -332,3 +367,8 @@ const AddStatsSpan = function(label, rawNum, percentage, rawNumMain, percentageM
         span.innerHTML = item || "";
     }
 }
+
+const GetColorByIndex = function(index){
+    const hue = index * 137.508; // use golden angle approximation
+    return `hsl(${hue},75%,75%)`;
+};
