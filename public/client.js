@@ -69,7 +69,7 @@ window.onload = function () {
             let volumeToIsMain = {};
             for (const vol of volumes){
                 books = books.concat(vol.issues);
-                volumeToIsMain[vol.name] = vol.mainSeries;
+                volumeToIsMain[vol.fullName] = vol.mainSeries;
             }
 
             books.sort((a, b) => {
