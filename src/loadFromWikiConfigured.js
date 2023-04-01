@@ -57,6 +57,10 @@ exports.LoadFromWikiConfigured = async function(){
                 issue.personal.haveRead = true;
                 issue.personal.ownSingleIssue = true;
             }
+            if(CONFIG.volumes.other.incomplete[key].haveTpb === true){
+                issue.personal.haveRead = true;
+                issue.personal.ownInTrade = true;
+            }
         }
     }
 
