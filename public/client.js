@@ -223,6 +223,13 @@ const AddBook = function (book, isMain) {
     let li = document.createElement("li");
     list.appendChild(li);
 
+    li.onclick = ()=>{
+        window.open(
+            book.url,
+            "_blank"
+        );
+    };
+
     let img = document.createElement("img");
 
     for (let ext of EXT_OPTIONS) {
