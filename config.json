@@ -83,14 +83,11 @@
                 "https://marvel.fandom.com/wiki/Marvel_2-In-One_Vol_1",
                 "https://marvel.fandom.com/wiki/Marvel_2-In-One_Annual_Vol_1",
                 "https://marvel.fandom.com/wiki/FF_Vol_1",
-                "https://marvel.fandom.com/wiki/Ultimate_Fantastic_Four_Vol_1"
+                "https://marvel.fandom.com/wiki/Ultimate_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Dark_Reign:_Fantastic_Four_Vol_1",
+                "https://marvel.fandom.com/wiki/Ultimatum:_Fantastic_Four_Requiem_Vol_1"
             ],
             "incomplete" : [
-                {
-                    "url" : "https://marvel.fandom.com/wiki/Dark_Reign:_Fantastic_Four_Vol_1",
-                    "missing" : [ 5 ],
-                    "haveTpb" : true
-                },
                 {
                     "url" : "https://marvel.fandom.com/wiki/Fantastic_Four_2099_Vol_1",
                     "missing" : [ 1, 2, 3, 7, 8 ],
@@ -103,18 +100,13 @@
                 },
                 {
                     "url" : "https://marvel.fandom.com/wiki/Fantastic_Four:_Unplugged_Vol_1",
-                    "missing" : [ 1, 5 ],
+                    "missing" : [ 5 ],
                     "haveTpb" : false
                 },
                 {
                     "url" : "https://marvel.fandom.com/wiki/Spider-Man_/_Fantastic_Four_Vol_1",
                     "missing" : [ 1, 2, 3, 4],
                     "haveTpb" : true
-                },
-                {
-                    "url" : "https://marvel.fandom.com/wiki/Ultimatum:_Fantastic_Four_Requiem_Vol_1",
-                    "missing" : [ 1 ],
-                    "haveTpb" : false
                 }
             ]
         }
